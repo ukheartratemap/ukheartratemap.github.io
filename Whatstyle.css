@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(214, 100%, 90%);
+}
+
+a {
+  text-decoration: none;
+  color: hsl(240, 64%, 27%);
+}
+
+.NHS-info {
+  text-decoration: underline;
+  color: blue;
+}
+
+#logopic {
+width: 160px;
+height: 150px;
+}
+
+.name0 {
+position: fixed;
+padding: 0;
+margin: 0;
+width: 100px;
+text-align: center;
+font-size: 15px;
+font-weight: bold;
+font-family: serif;
+height: 150px;
+color: hsl(270, 83%, 18%);
+}
+
+.pic {
+position: fixed;
+left: 90px;
+border: 1px solid black;
+}
+
+.nav {
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr / 100%;
+  grid-template-areas: "Home"
+                       "What"
+                       "Measure"
+                       "Map";
+  justify-content: left;
+  align-items: center;
+  align-content: center;
+  border: black solid;
+  border-radius: 5px;
+  width: 255px;
+  margin-top: 150px;
+  position: fixed;
+  z-index: 50;
+  background-color: white;
+}
+
+.item {
+  width: 250px;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 28px 10px;
+}
+
+.home {
+  border-bottom: solid black;
+  grid-area: "Home";
+}
+
+.what {
+  border-bottom: solid black;
+  grid-area: "What";
+}
+
+.measure {
+  border-bottom: solid black;
+  grid-area: "Measure";
+}
+
+.map {
+grid-area: "Map";
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 40px;
+  display: block;
+  color: hsl(270, 83%, 18%);
+  font-family: /* COMBAK:  */;
+  font-weight: bold;
+  position: absolute;
+  margin-left: 260px;
+  width: 900px;
+  text-align: center;
+}
+
+.information {
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr 3fr 1fr 3fr 1fr 3fr 1fr 3fr;
+  grid-template-columns: 30% 70%;
+  grid-template-areas: "What-header"
+                       "What-content"
+                       "Clinically-significant"
+                       "Clinically-content"
+                       "Why-collect"
+                       "Collect-content"
+                       "Improve"
+                       "Improve-content"
+                       "References";
+  position: relative;
+  top: 100px;
+  left: 270px;
+  width: 800px;
+  height: 800px;
+  font-family: sans-serif;
+}
+
+.info {
+  text-align: left;
+  font-family: sans-serif;
+padding: 5px 5px;
+}
+
+h2,
+h3 {
+color: hsl(240, 64%, 27%);
+}
+
+.What-header {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.What-content {
+  grid-area: 2 / 1 / 3 / 3;
+}
+
+.Clinically {
+  grid-area: 3 / 1 / 4 / 3;
+}
+
+.Clinically-content {
+  grid-area: 4 / 1 / 5 / 3;
+}
+
+.Collect {
+  grid-area: 6 / 1 / 7 / 3;
+}
+
+.Collect-content {
+  grid-area: 7 / 1 / 8 / 3;
+}
+
+.Improve {
+  grid-area: 8 / 1 / 9 / 3;
+}
+
+.Improve-content {
+  grid-area: 9 / 2 / 10 / 3;
+}
+
+.healthy-heart {
+  grid-area: 9 / 1 / 10 / 2;
+}
+
+#heart-pic {
+  width: 220px;
+  height: 200px;
+  border: thin solid black;
+}
+
+.References {
+  grid-area: 10 / 1 / 11 / 3;
+}
+
+.References-list {
+  grid-area: 11 / 1 / 12 / 3;
+}
+
+p {
+
+}

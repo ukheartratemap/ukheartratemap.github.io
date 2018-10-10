@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(214, 100%, 90%);
+}
+
+a {
+  color: hsl(240, 64%, 27%);
+}
+
+#logopic {
+    display: block;
+    width: 80px;
+    height: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 1px solid black;
+}
+
+
+.header {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: hsl(270, 83%, 18%);
+  background-color: hsl(214, 100%, 90%);
+}
+
+.Googleform {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.Home {
+  position: relative;
+  width: 200px;
+  left: 800px;
+  font-family: sans-serif;
+}

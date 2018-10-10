@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(214, 100%, 90%);
+}
+
+a {
+  text-decoration: none;
+  color: hsl(240, 64%, 27%);
+}
+
+#logopic {
+width: 160px;
+height: 150px;
+border: 1px solid black;
+}
+
+.name0 {
+position: fixed;
+padding: 0;
+margin: 0;
+width: 100px;
+text-align: center;
+font-size: 15px;
+font-weight: bold;
+font-family: serif;
+color: hsl(270, 83%, 18%);
+}
+
+.pic {
+position: fixed;
+left: 90px;
+}
+
+.Survey-link {
+  text-decoration: underline;
+  color: red;
+}
+
+#Enterinfo {
+  font-size: 30px;
+}
+
+.nav {
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 100%;
+  grid-template-areas: "Home"
+                       "What"
+                       "Measure"
+                       "Map";
+  justify-content: left;
+  align-items: start;
+  align-content: start;
+  border: black solid;
+  border-radius: 5px;
+  width: 255px;
+  margin-top: 150px;
+  position: fixed;
+  background-color: white;
+}
+
+.item {
+  width: 250px;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 28px 10px;
+  border-top: none;
+}
+
+.home {
+  border-bottom: solid black;
+  grid-area: "Home";
+}
+
+.what {
+  border-bottom: solid black;
+  grid-area: "What";
+}
+
+.measure {
+  border-bottom: solid black;
+  grid-area: "Measure";
+}
+
+.map {
+grid-area: "Map";
+}
+
+h1 {
+  font-family: /* COMBAK:  */;
+  font-weight: bold;
+  position: absolute;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 40px;
+  margin-left: 260px;
+  width: 900px;
+  text-align: center;
+  color: hsl(270, 83%, 18%);
+}
+
+.information {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 1fr 3fr 1fr 3fr 1fr 3fr 3fr 1fr 1fr 3fr;
+  position: relative;
+  top: 150px;
+  left: 270px;
+  width: 800px;
+  height: 800px;
+  font-family: sans-serif;
+}
+
+.info {
+  text-align: left;
+  font-family: sans-serif;
+padding: 5px 5px;
+/*border: 2px solid black;*/
+}
+
+h2,
+h3 {
+color: hsl(240, 64%, 27%);
+}
+
+.How {
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.How-content {
+  grid-area: 2 / 1 / 3 / 3;
+}
+
+.Radial {
+  grid-area: 3 / 1 / 4 / 3;
+}
+
+.Radial-content {
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.Radial-d {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+img {
+  width: 200px;
+  height: 150px;
+  border: thin solid black;
+}
+
+.Carotid {
+  grid-area: 5 / 1 / 6 / 3;
+}
+
+.Carotid-content {
+  grid-area: 6 / 1 / 7 / 2;
+}
+
+.Carotid-d {
+  grid-area: 6 / 2 / 7 / 3;
+}
+
+.How2 {
+  grid-area: 7 / 1 / 8 / 3;
+}
+
+.Result {
+  grid-area: 8 / 1 / 9 / 3;
+}
+
+.References {
+  grid-area: 9 / 1 / 10 / 3;
+}
+
+.Ref-content {
+  grid-area: 10 / 1 / 11 / 3;
+}
+
+p {
+
+}
