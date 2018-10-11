@@ -38,8 +38,6 @@ a {
 }
 
 .Home {
-  position: relative;
-  width: 200px;
-  left: 800px;
+  margin-left: 60%;
   font-family: sans-serif;
 }
