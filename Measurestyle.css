@@ -41,6 +41,7 @@ left: 90px;
 
 #Enterinfo {
   font-size: 30px;
+  text-align: center;
 }
 
 .nav {
@@ -181,4 +182,9 @@ img {
 
 p {
 
+}
+
+.explainsurvey {
+  font-size: 20px;
+  text-align: center;
 }

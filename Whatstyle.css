@@ -184,3 +184,14 @@ color: hsl(240, 64%, 27%);
 p {
 
 }
+
+.linktorecord {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.linktomeasure {
+  color: red;
+  text-decoration: underline;
+}
