@@ -1,0 +1,29 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  width: 500px;
+  text-align: center;
+  background-color: hsl(214, 100%, 90%);
+  color: hsl(270, 83%, 18%);
+}
+
+.info {
+  display: grid;
+  grid-template: 100% / 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: solid black 2px;
+  width: 500px;
+  background-color: #B4EAFA;
+}
+
+.category {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.stat {
+  grid-area: 1 / 2 / 2 / 3;
+}
