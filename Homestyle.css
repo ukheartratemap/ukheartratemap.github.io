@@ -63,7 +63,7 @@ grid-area: 3 / 1 / 4 / 2;
   text-align: center;
   color: hsl(270, 83%, 18%);
 }
-
+/*This is for the welcome message*/
 .welcome {
   width: 800px;
   position: relative;
