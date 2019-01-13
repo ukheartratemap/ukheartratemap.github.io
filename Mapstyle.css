@@ -139,3 +139,10 @@ h1 {
   grid-area: 1 / 3 / 2 / 4;
   border: solid black 2px;
 }
+
+.qgisframe {
+  position: absolute;
+  left: 300px;
+  top: 80px;
+  border: black 2px solid;
+}
