@@ -105,7 +105,7 @@ h1 {
 .information {
   display: grid;
   grid-template-columns: 70% 30%;
-  grid-template-rows: 1fr 3fr 1fr 3fr 1fr 3fr 3fr 1fr 1fr 3fr;
+  grid-template-rows: 1fr 3fr 1fr 3fr 1fr 3fr 3fr 1fr 1fr 1fr 3fr;
   position: relative;
   top: 150px;
   left: 270px;
@@ -172,12 +172,38 @@ img {
   grid-area: 8 / 1 / 9 / 3;
 }
 
-.References {
+.timer2 {
   grid-area: 9 / 1 / 10 / 3;
+  font-size: 100px;
+  font-weight: bold;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+button {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #CA173B;
+  font-family: sans-serif;
+  border: black solid 2px;
+}
+
+input {
+  width: 50px;
+  height: 40px;
+  font-size: 35px;
+  font-weight: bold;
+  border: black solid 2px;
+}
+
+.References {
+  grid-area: 10 / 1 / 11 / 3;
 }
 
 .Ref-content {
-  grid-area: 10 / 1 / 11 / 3;
+  grid-area: 11 / 1 / 12 / 3;
 }
 
 p {
@@ -187,4 +213,9 @@ p {
 .explainsurvey {
   font-size: 20px;
   text-align: center;
+}
+
+.timer_intro {
+  font-size: 15px;
+  font-family: sans-serif;
 }

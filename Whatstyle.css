@@ -101,7 +101,7 @@ h1 {
 
 .information {
   display: grid;
-  grid-template-rows: 1fr 3fr 1fr 3fr 1fr 3fr 1fr 3fr 1fr 3fr;
+  grid-template-rows: 1fr 3fr 1fr 1fr 3fr 1fr 3fr 1fr 3fr 1fr 3fr;
   grid-template-columns: 30% 70%;
   grid-template-areas: "What-header"
                        "What-content"
@@ -137,34 +137,39 @@ color: hsl(240, 64%, 27%);
 
 .What-content {
   grid-area: 2 / 1 / 3 / 3;
+  padding: 0;
 }
 
-.Clinically {
+.video_content {
   grid-area: 3 / 1 / 4 / 3;
 }
 
-.Clinically-content {
+.Clinically {
   grid-area: 4 / 1 / 5 / 3;
 }
 
-.Collect {
-  grid-area: 6 / 1 / 7 / 3;
+.Clinically-content {
+  grid-area: 5 / 1 / 6 / 3;
 }
 
-.Collect-content {
+.Collect {
   grid-area: 7 / 1 / 8 / 3;
 }
 
-.Improve {
+.Collect-content {
   grid-area: 8 / 1 / 9 / 3;
 }
 
+.Improve {
+  grid-area: 9 / 1 / 10 / 3;
+}
+
 .Improve-content {
-  grid-area: 9 / 2 / 10 / 3;
+  grid-area: 10 / 2 / 11 / 3;
 }
 
 .healthy-heart {
-  grid-area: 9 / 1 / 10 / 2;
+  grid-area: 10 / 1 / 11 / 2;
 }
 
 #heart-pic {
@@ -174,11 +179,11 @@ color: hsl(240, 64%, 27%);
 }
 
 .References {
-  grid-area: 10 / 1 / 11 / 3;
+  grid-area: 11 / 1 / 12 / 3;
 }
 
 .References-list {
-  grid-area: 11 / 1 / 12 / 3;
+  grid-area: 12 / 1 / 13 / 3;
 }
 
 p {
@@ -194,4 +199,15 @@ p {
 .linktomeasure {
   color: red;
   text-decoration: underline;
+}
+
+.video_intro {
+  font-size: 20px;
+  padding: 0;
+}
+
+video {
+  display: block;
+  margin: auto;
+  padding: 0;
 }

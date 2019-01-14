@@ -69,6 +69,39 @@
       <p>This will give you your resting heart rate in beats per minute (BPM). For most people, the result will be between 60bpm and 100bpm.</p>
       <p>If you get a result below 40bpm or above 120bpm a few times, or your pulse feels irregular, then please consult with your GP. But don’t panic, this result may be normal for you.</p>
     </div>
+    <div class="timer2">
+      <div class="timer_intro">
+        <p>Below is a timer to use while you measure your pulse.</p>
+      </div>
+      <button onclick="startCount()">Start timer</button>
+  <input type="text" id="txt">
+  <button onclick="stopCount()">Stop timer</button>
+
+
+  <script>
+  var c = 0;
+  var t;
+  var timer_is_on = 0;
+
+  function timedCount() {
+  document.getElementById("txt").value = c;
+  c = c + 1;
+  t = setTimeout(timedCount, 1000);
+  }
+
+  function startCount() {
+  if (!timer_is_on) {
+    timer_is_on = 1;
+    timedCount();
+  }
+  }
+
+  function stopCount() {
+  clearTimeout(t);
+  timer_is_on = 0;
+  }
+  </script>
+    </div>
     <div class="Result" style="justify-self: center;">
       <p id="Enterinfo">Once you have taken your pulse, <a class="Survey-link" href="./Survey.html"><strong>enter the result here</strong></a>.</p>
       <p class="explainsurvey">You will be asked for your resting heart rate measurement, along with some information about lifestyle factors that affect resting heart rate.</p>
@@ -80,6 +113,7 @@
       <p>NHS Choices (2018) <i>How do I check my pulse?</i> NHS. Available online: https://www.nhs.uk/common-health-questions/accidents-first-aid-and-treatments/how-do-i-check-my-pulse/ [Accessed 28/7/2018].</p>
     </div>
   </div>
+
 </body>
 <!--This page tells you how to measure your resting heart rate-->
 </html>

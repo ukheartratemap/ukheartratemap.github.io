@@ -99,7 +99,7 @@ h1 {
   margin-left: 260px;
 }
 
-.map_grid {
+/* .map_grid {
   display: grid;
   grid-template: 100% / 3fr 1fr 7fr;
   position: relative;
@@ -138,11 +138,27 @@ h1 {
 .map_image {
   grid-area: 1 / 3 / 2 / 4;
   border: solid black 2px;
-}
+} */
 
-.qgisframe {
+.map_frame {
+  display: grid;
+  width: 750px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  grid-template: 95% 5% / 100%;
   position: absolute;
   left: 300px;
   top: 80px;
+  font-family: sans-serif;
+}
+
+.qgisframe {
+  text-align: center;
+  grid-area: 1 / 1 / 2 / 2;
   border: black 2px solid;
+}
+
+.explanation {
+  grid-area: 2 / 1 / 3 / 2;
 }
