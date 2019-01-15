@@ -198,6 +198,11 @@ input {
   border: black solid 2px;
 }
 
+.timer_content {
+  width: 400px;
+  height: 100px;
+}
+
 .References {
   grid-area: 10 / 1 / 11 / 3;
 }
