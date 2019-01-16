@@ -7,6 +7,10 @@ a {
   color: hsl(240, 64%, 27%);
 }
 
+.UNIlogo {
+   position: absolute;
+}
+
 #logopic {
   display: block;
   width: 80px;
