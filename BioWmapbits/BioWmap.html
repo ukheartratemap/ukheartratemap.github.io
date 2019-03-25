@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 704px;
+            height: 565px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/AgedLessThan40_0.js"></script>
+        <script src="data/Aged4060_1.js"></script>
+        <script src="data/AgedOver60_2.js"></script>
+        <script src="data/Male_3.js"></script>
+        <script src="data/Female_4.js"></script>
+        <script src="data/TotalPopulation_5.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+            highlightLayer.openPopup();
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:4
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+            map.setMaxBounds(map.getBounds());
+        }
+        function pop_AgedLessThan40_0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Region</th>\
+                        <td>' + (feature.properties['NAME_2'] !== null ? Autolinker.link(String(feature.properties['NAME_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mean Resting Heart Rate</th>\
+                        <td>' + (feature.properties['Pulse_Rate_mean'] !== null ? Autolinker.link(String(feature.properties['Pulse_Rate_mean'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AgedLessThan40_0_0(feature) {
+            if (feature.properties['Pulse_Rate_mean'] >= 52.000000 && feature.properties['Pulse_Rate_mean'] <= 57.000000 ) {
+                return {
+                pane: 'pane_AgedLessThan40_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 57.000000 && feature.properties['Pulse_Rate_mean'] <= 62.000000 ) {
+                return {
+                pane: 'pane_AgedLessThan40_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 62.000000 && feature.properties['Pulse_Rate_mean'] <= 67.000000 ) {
+                return {
+                pane: 'pane_AgedLessThan40_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 67.000000 && feature.properties['Pulse_Rate_mean'] <= 72.000000 ) {
+                return {
+                pane: 'pane_AgedLessThan40_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 72.000000 && feature.properties['Pulse_Rate_mean'] <= 77.000000 ) {
+                return {
+                pane: 'pane_AgedLessThan40_0',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_AgedLessThan40_0');
+        map.getPane('pane_AgedLessThan40_0').style.zIndex = 400;
+        map.getPane('pane_AgedLessThan40_0').style['mix-blend-mode'] = 'normal';
+        var layer_AgedLessThan40_0 = new L.geoJson(json_AgedLessThan40_0, {
+            attribution: '',
+            pane: 'pane_AgedLessThan40_0',
+            onEachFeature: pop_AgedLessThan40_0,
+            style: style_AgedLessThan40_0_0,
+        });
+        bounds_group.addLayer(layer_AgedLessThan40_0);
+        map.addLayer(layer_AgedLessThan40_0);
+        function pop_Aged4060_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Region</th>\
+                        <td>' + (feature.properties['NAME_2'] !== null ? Autolinker.link(String(feature.properties['NAME_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mean Resting Heart Rate</th>\
+                        <td>' + (feature.properties['Pulse_Rate_mean'] !== null ? Autolinker.link(String(feature.properties['Pulse_Rate_mean'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Aged4060_1_0(feature) {
+            if (feature.properties['Pulse_Rate_mean'] >= 55.500000 && feature.properties['Pulse_Rate_mean'] <= 62.800000 ) {
+                return {
+                pane: 'pane_Aged4060_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 62.800000 && feature.properties['Pulse_Rate_mean'] <= 70.100000 ) {
+                return {
+                pane: 'pane_Aged4060_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 70.100000 && feature.properties['Pulse_Rate_mean'] <= 77.400000 ) {
+                return {
+                pane: 'pane_Aged4060_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 77.400000 && feature.properties['Pulse_Rate_mean'] <= 84.700000 ) {
+                return {
+                pane: 'pane_Aged4060_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 84.700000 && feature.properties['Pulse_Rate_mean'] <= 92.000000 ) {
+                return {
+                pane: 'pane_Aged4060_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Aged4060_1');
+        map.getPane('pane_Aged4060_1').style.zIndex = 401;
+        map.getPane('pane_Aged4060_1').style['mix-blend-mode'] = 'normal';
+        var layer_Aged4060_1 = new L.geoJson(json_Aged4060_1, {
+            attribution: '',
+            pane: 'pane_Aged4060_1',
+            onEachFeature: pop_Aged4060_1,
+            style: style_Aged4060_1_0,
+        });
+        bounds_group.addLayer(layer_Aged4060_1);
+        map.addLayer(layer_Aged4060_1);
+        function pop_AgedOver60_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Region</th>\
+                        <td>' + (feature.properties['NAME_2'] !== null ? Autolinker.link(String(feature.properties['NAME_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mean Resting Heart Rate</th>\
+                        <td>' + (feature.properties['Pulse_Rate_mean'] !== null ? Autolinker.link(String(feature.properties['Pulse_Rate_mean'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AgedOver60_2_0(feature) {
+            if (feature.properties['Pulse_Rate_mean'] >= 52.000000 && feature.properties['Pulse_Rate_mean'] <= 64.200000 ) {
+                return {
+                pane: 'pane_AgedOver60_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 64.200000 && feature.properties['Pulse_Rate_mean'] <= 76.400000 ) {
+                return {
+                pane: 'pane_AgedOver60_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 76.400000 && feature.properties['Pulse_Rate_mean'] <= 88.600000 ) {
+                return {
+                pane: 'pane_AgedOver60_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 88.600000 && feature.properties['Pulse_Rate_mean'] <= 100.800000 ) {
+                return {
+                pane: 'pane_AgedOver60_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 100.800000 && feature.properties['Pulse_Rate_mean'] <= 113.000000 ) {
+                return {
+                pane: 'pane_AgedOver60_2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_AgedOver60_2');
+        map.getPane('pane_AgedOver60_2').style.zIndex = 402;
+        map.getPane('pane_AgedOver60_2').style['mix-blend-mode'] = 'normal';
+        var layer_AgedOver60_2 = new L.geoJson(json_AgedOver60_2, {
+            attribution: '',
+            pane: 'pane_AgedOver60_2',
+            onEachFeature: pop_AgedOver60_2,
+            style: style_AgedOver60_2_0,
+        });
+        bounds_group.addLayer(layer_AgedOver60_2);
+        map.addLayer(layer_AgedOver60_2);
+        function pop_Male_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Region</th>\
+                        <td>' + (feature.properties['NAME_2'] !== null ? Autolinker.link(String(feature.properties['NAME_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mean Resting Heart Rate</th>\
+                        <td>' + (feature.properties['Pulse_Rate_mean'] !== null ? Autolinker.link(String(feature.properties['Pulse_Rate_mean'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Male_3_0(feature) {
+            if (feature.properties['Pulse_Rate_mean'] >= 53.000000 && feature.properties['Pulse_Rate_mean'] <= 65.000000 ) {
+                return {
+                pane: 'pane_Male_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 65.000000 && feature.properties['Pulse_Rate_mean'] <= 77.000000 ) {
+                return {
+                pane: 'pane_Male_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 77.000000 && feature.properties['Pulse_Rate_mean'] <= 89.000000 ) {
+                return {
+                pane: 'pane_Male_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 89.000000 && feature.properties['Pulse_Rate_mean'] <= 101.000000 ) {
+                return {
+                pane: 'pane_Male_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 101.000000 && feature.properties['Pulse_Rate_mean'] <= 113.000000 ) {
+                return {
+                pane: 'pane_Male_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Male_3');
+        map.getPane('pane_Male_3').style.zIndex = 403;
+        map.getPane('pane_Male_3').style['mix-blend-mode'] = 'normal';
+        var layer_Male_3 = new L.geoJson(json_Male_3, {
+            attribution: '',
+            pane: 'pane_Male_3',
+            onEachFeature: pop_Male_3,
+            style: style_Male_3_0,
+        });
+        bounds_group.addLayer(layer_Male_3);
+        map.addLayer(layer_Male_3);
+        function pop_Female_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Region</th>\
+                        <td>' + (feature.properties['NAME_2'] !== null ? Autolinker.link(String(feature.properties['NAME_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mean Resting Heart Rate</th>\
+                        <td>' + (feature.properties['Pulse_Rate_mean'] !== null ? Autolinker.link(String(feature.properties['Pulse_Rate_mean'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Female_4_0(feature) {
+            if (feature.properties['Pulse_Rate_mean'] >= 55.000000 && feature.properties['Pulse_Rate_mean'] <= 62.400000 ) {
+                return {
+                pane: 'pane_Female_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 62.400000 && feature.properties['Pulse_Rate_mean'] <= 69.800000 ) {
+                return {
+                pane: 'pane_Female_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 69.800000 && feature.properties['Pulse_Rate_mean'] <= 77.200000 ) {
+                return {
+                pane: 'pane_Female_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 77.200000 && feature.properties['Pulse_Rate_mean'] <= 84.600000 ) {
+                return {
+                pane: 'pane_Female_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 84.600000 && feature.properties['Pulse_Rate_mean'] <= 92.000000 ) {
+                return {
+                pane: 'pane_Female_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Female_4');
+        map.getPane('pane_Female_4').style.zIndex = 404;
+        map.getPane('pane_Female_4').style['mix-blend-mode'] = 'normal';
+        var layer_Female_4 = new L.geoJson(json_Female_4, {
+            attribution: '',
+            pane: 'pane_Female_4',
+            onEachFeature: pop_Female_4,
+            style: style_Female_4_0,
+        });
+        bounds_group.addLayer(layer_Female_4);
+        map.addLayer(layer_Female_4);
+        function pop_TotalPopulation_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Region</th>\
+                        <td>' + (feature.properties['NAME_2'] !== null ? Autolinker.link(String(feature.properties['NAME_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Mean Resting Heart Rate</th>\
+                        <td>' + (feature.properties['Pulse_Rate_mean'] !== null ? Autolinker.link(String(feature.properties['Pulse_Rate_mean'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_TotalPopulation_5_0(feature) {
+            if (feature.properties['Pulse_Rate_mean'] >= 55.000000 && feature.properties['Pulse_Rate_mean'] <= 66.600000 ) {
+                return {
+                pane: 'pane_TotalPopulation_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 66.600000 && feature.properties['Pulse_Rate_mean'] <= 78.200000 ) {
+                return {
+                pane: 'pane_TotalPopulation_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 78.200000 && feature.properties['Pulse_Rate_mean'] <= 89.800000 ) {
+                return {
+                pane: 'pane_TotalPopulation_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 89.800000 && feature.properties['Pulse_Rate_mean'] <= 101.400000 ) {
+                return {
+                pane: 'pane_TotalPopulation_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['Pulse_Rate_mean'] >= 101.400000 && feature.properties['Pulse_Rate_mean'] <= 113.000000 ) {
+                return {
+                pane: 'pane_TotalPopulation_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_TotalPopulation_5');
+        map.getPane('pane_TotalPopulation_5').style.zIndex = 405;
+        map.getPane('pane_TotalPopulation_5').style['mix-blend-mode'] = 'normal';
+        var layer_TotalPopulation_5 = new L.geoJson(json_TotalPopulation_5, {
+            attribution: '',
+            pane: 'pane_TotalPopulation_5',
+            onEachFeature: pop_TotalPopulation_5,
+            style: style_TotalPopulation_5_0,
+        });
+        bounds_group.addLayer(layer_TotalPopulation_5);
+        map.addLayer(layer_TotalPopulation_5);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Total Population<br /><table><tr><td style="text-align: center;"><img src="legend/TotalPopulation_5_5506660.png" /></td><td> 55.0 - 66.6 </td></tr><tr><td style="text-align: center;"><img src="legend/TotalPopulation_5_6667821.png" /></td><td> 66.6 - 78.2 </td></tr><tr><td style="text-align: center;"><img src="legend/TotalPopulation_5_7828982.png" /></td><td> 78.2 - 89.8 </td></tr><tr><td style="text-align: center;"><img src="legend/TotalPopulation_5_89810143.png" /></td><td> 89.8 - 101.4 </td></tr><tr><td style="text-align: center;"><img src="legend/TotalPopulation_5_101411304.png" /></td><td> 101.4 - 113.0 </td></tr></table>': layer_TotalPopulation_5,'Female <br /><table><tr><td style="text-align: center;"><img src="legend/Female_4_5506240.png" /></td><td> 55.0 - 62.4 </td></tr><tr><td style="text-align: center;"><img src="legend/Female_4_6246981.png" /></td><td> 62.4 - 69.8 </td></tr><tr><td style="text-align: center;"><img src="legend/Female_4_6987722.png" /></td><td> 69.8 - 77.2 </td></tr><tr><td style="text-align: center;"><img src="legend/Female_4_7728463.png" /></td><td> 77.2 - 84.6 </td></tr><tr><td style="text-align: center;"><img src="legend/Female_4_8469204.png" /></td><td> 84.6 - 92.0 </td></tr></table>': layer_Female_4,'Male<br /><table><tr><td style="text-align: center;"><img src="legend/Male_3_53650.png" /></td><td> 53 - 65 </td></tr><tr><td style="text-align: center;"><img src="legend/Male_3_65771.png" /></td><td> 65 - 77 </td></tr><tr><td style="text-align: center;"><img src="legend/Male_3_77892.png" /></td><td> 77 - 89 </td></tr><tr><td style="text-align: center;"><img src="legend/Male_3_891013.png" /></td><td> 89 - 101 </td></tr><tr><td style="text-align: center;"><img src="legend/Male_3_1011134.png" /></td><td> 101 - 113 </td></tr></table>': layer_Male_3,'Aged Over 60<br /><table><tr><td style="text-align: center;"><img src="legend/AgedOver60_2_52640.png" /></td><td> 52 - 64 </td></tr><tr><td style="text-align: center;"><img src="legend/AgedOver60_2_64761.png" /></td><td> 64 - 76 </td></tr><tr><td style="text-align: center;"><img src="legend/AgedOver60_2_76892.png" /></td><td> 76 - 89 </td></tr><tr><td style="text-align: center;"><img src="legend/AgedOver60_2_891013.png" /></td><td> 89 - 101 </td></tr><tr><td style="text-align: center;"><img src="legend/AgedOver60_2_1011134.png" /></td><td> 101 - 113 </td></tr></table>': layer_AgedOver60_2,'Aged 40-60<br /><table><tr><td style="text-align: center;"><img src="legend/Aged4060_1_5556280.png" /></td><td> 55.5 - 62.8 </td></tr><tr><td style="text-align: center;"><img src="legend/Aged4060_1_6287011.png" /></td><td> 62.8 - 70.1 </td></tr><tr><td style="text-align: center;"><img src="legend/Aged4060_1_7017742.png" /></td><td> 70.1 - 77.4 </td></tr><tr><td style="text-align: center;"><img src="legend/Aged4060_1_7748473.png" /></td><td> 77.4 - 84.7 </td></tr><tr><td style="text-align: center;"><img src="legend/Aged4060_1_8479204.png" /></td><td> 84.7 - 92.0 </td></tr></table>': layer_Aged4060_1,'Aged Less Than 40<br /><table><tr><td style="text-align: center;"><img src="legend/AgedLessThan40_0_5205700.png" /></td><td> 52.0 - 57.0 </td></tr><tr><td style="text-align: center;"><img src="legend/AgedLessThan40_0_5706201.png" /></td><td> 57.0 - 62.0 </td></tr><tr><td style="text-align: center;"><img src="legend/AgedLessThan40_0_6206702.png" /></td><td> 62.0 - 67.0 </td></tr><tr><td style="text-align: center;"><img src="legend/AgedLessThan40_0_6707203.png" /></td><td> 67.0 - 72.0 </td></tr><tr><td style="text-align: center;"><img src="legend/AgedLessThan40_0_7207704.png" /></td><td> 72.0 - 77.0 </td></tr></table>': layer_AgedLessThan40_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
